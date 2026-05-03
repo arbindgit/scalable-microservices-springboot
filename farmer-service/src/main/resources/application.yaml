@@ -1,3 +1,17 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: farmer-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cowras?currentSchema=farmer_schema
+    username: postgres
+    password: 848210
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
