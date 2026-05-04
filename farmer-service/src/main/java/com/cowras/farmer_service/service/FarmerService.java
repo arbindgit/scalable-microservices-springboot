@@ -1,5 +1,6 @@
 package com.cowras.farmer_service.service;
 
+import com.cowras.farmer_service.exception.ResourceNotFoundException;
 import com.cowras.farmer_service.model.Farmer;
 import com.cowras.farmer_service.repository.FarmerRepository;
 import java.util.List;
@@ -13,6 +14,7 @@ public class FarmerService {
     @Autowired
     private FarmerRepository repository;
     public Farmer create(Farmer farmer) {
+
         return repository.save(farmer);
     }
 
@@ -22,7 +24,8 @@ public class FarmerService {
 
     public Farmer getById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Farmer not found"));
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Farmer not found with id: " + id));
     }
 
 

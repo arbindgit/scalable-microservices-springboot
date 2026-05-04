@@ -3,6 +3,7 @@ package com.cowras.farmer_service.controller;
 import com.cowras.farmer_service.model.Farmer;
 import com.cowras.farmer_service.service.FarmerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +26,10 @@ public class FarmerController {
     }
 
     @PostMapping
-    public Farmer createFarmer(@RequestBody Farmer farmer) {
-        return farmerService.create(farmer);
+    public ResponseEntity<Farmer> createFarmer(@RequestBody Farmer farmer) {
+
+        Farmer farmerreturn = farmerService.create(farmer);
+        return ResponseEntity.ok(farmerreturn);
     }
 
 
