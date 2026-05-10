@@ -1,4 +1,4 @@
-package com.cowras.user_service.model;
+package com.cowras.auth_service.model;
 import lombok.Builder;
 import lombok.*;
 
